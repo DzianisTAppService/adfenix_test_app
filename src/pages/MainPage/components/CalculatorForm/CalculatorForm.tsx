@@ -1,14 +1,10 @@
 import React, { FC, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Box, Button, Divider, Grid } from '@mui/material';
 
-import UsersField from './UsersField';
 import ProfessionsField from './ProfessionsField';
-import PATHS from 'constants/routes-paths';
 
 const CalculatorForm: FC = () => {
-  const navigate = useNavigate();
   const methods = useForm();
   const { handleSubmit, watch, setValue } = methods;
 
@@ -19,7 +15,7 @@ const CalculatorForm: FC = () => {
   }, [organizationValue]);
 
   const onSubmit = (data: any) => {
-    navigate(PATHS.welcome, { state: { formData: data } });
+    console.log(data, 'submitted data');
   };
 
   return (
@@ -29,12 +25,6 @@ const CalculatorForm: FC = () => {
           <Grid item>
             <ProfessionsField />
           </Grid>
-
-          {organizationValue && (
-            <Grid item>
-              <UsersField />
-            </Grid>
-          )}
 
           <Box my={3}>
             <Divider />
