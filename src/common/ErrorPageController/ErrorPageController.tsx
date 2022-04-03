@@ -7,7 +7,6 @@ export enum ErrorType {
   type_404 = '404',
   type_500 = '500',
 }
-// type ErrorType = '404' | '500';
 type ErrorObjectProps = {
   title: string;
   subText: JSX.Element;
@@ -21,10 +20,10 @@ export interface ErrorPageControllerProps {
   type: ErrorType;
 }
 
-const ComponentPicker: ComponentPickerType = () => ({
+const ComponentPicker: ComponentPickerType = {
   [ErrorType.type_404]: {
     title: 'Sorry friend',
-    subText: <span>'The page you are looking for no longer exists.'</span>,
+    subText: <span>The page you are looking for no longer exists.</span>,
     action: 'home',
   },
   [ErrorType.type_500]: {
@@ -37,7 +36,7 @@ const ComponentPicker: ComponentPickerType = () => ({
     ),
     action: null,
   },
-});
+};
 
 const ErrorPageController: FC<ErrorPageControllerProps> = ({ type }): JSX.Element => {
   useEffect(() => {
