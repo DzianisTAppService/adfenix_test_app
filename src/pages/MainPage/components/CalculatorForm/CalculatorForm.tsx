@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Box, Button, Divider, Grid } from '@mui/material';
 
@@ -7,16 +7,13 @@ import ExperienceField from './ExperienceField';
 
 const CalculatorForm: FC = () => {
   const methods = useForm();
-  const { handleSubmit, watch, setValue } = methods;
-
-  const organizationValue: string = watch('organization');
-
-  useEffect(() => {
-    setValue('users', []);
-  }, [organizationValue]);
+  const { handleSubmit, getValues, watch } = methods;
+  const profession = watch('profession');
 
   const onSubmit = (data: any) => {
     console.log(data, 'submitted data');
+    console.log(getValues(), 'getValues');
+    console.log(profession, 'profession');
   };
 
   return (

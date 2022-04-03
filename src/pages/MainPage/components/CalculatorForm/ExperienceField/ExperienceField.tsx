@@ -9,9 +9,17 @@ const ExperienceField: FC = () => {
     <Controller
       control={control}
       name='experience'
-      render={() => (
+      defaultValue=''
+      render={({ field: { onChange, value } }) => (
         <FormControl fullWidth>
-          <TextField id='experience' label='Experience' inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} />
+          <TextField
+            type='number'
+            id='experience'
+            label='Experience'
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            value={value}
+            onChange={onChange}
+          />
         </FormControl>
       )}
     />

@@ -15,19 +15,19 @@ const Professions = [
 ];
 
 const ProfessionsField: FC = () => {
-  const { control, watch } = useFormContext();
-  const organizationValue: string = watch('organization');
+  const { control } = useFormContext();
 
   return (
     <Controller
       name='profession'
       control={control}
-      render={({ field: { onChange } }) => (
+      defaultValue=''
+      render={({ field: { onChange, value } }) => (
         <FormControl fullWidth>
-          <InputLabel id='organization-label' style={{ backgroundColor: '#fff' }}>
+          <InputLabel id='profession-label' style={{ backgroundColor: '#fff' }}>
             Organisation
           </InputLabel>
-          <Select labelId='organization-label' id='organization' onChange={onChange} value={organizationValue}>
+          <Select labelId='profession-label' id='profession' onChange={onChange} value={value}>
             {Professions.map(({ name, id }) => (
               <MenuItem key={id} value={name}>
                 {name}
