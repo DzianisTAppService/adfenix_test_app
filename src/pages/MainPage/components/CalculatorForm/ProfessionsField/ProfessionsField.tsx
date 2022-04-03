@@ -1,16 +1,7 @@
 import React, { FC } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
-import {
-  FormControl,
-  FormControlLabel,
-  InputLabel,
-  MenuItem,
-  Radio,
-  RadioGroup,
-  Select,
-  Typography,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 enum ProfessionTypes {
   DEVELOPER = 'Developer',
@@ -29,7 +20,7 @@ const ProfessionsField: FC = () => {
 
   return (
     <Controller
-      name='organization'
+      name='profession'
       control={control}
       render={({ field: { onChange } }) => (
         <FormControl fullWidth>
@@ -37,16 +28,9 @@ const ProfessionsField: FC = () => {
             Organisation
           </InputLabel>
           <Select labelId='organization-label' id='organization' onChange={onChange} value={organizationValue}>
-            {/*// renderValue={e => <Typography>{JSON.parse(e).name}</Typography>}>*/}
             {Professions.map(({ name, id }) => (
               <MenuItem key={id} value={name}>
                 {name}
-                {/*<RadioGroup aria-label={name} name={name}>*/}
-                {/*  <FormControlLabel*/}
-                {/*    control={<Radio checked={Boolean(organizationValue && id === JSON.parse(organizationValue).id)} />}*/}
-                {/*    label={name}*/}
-                {/*  />*/}
-                {/*</RadioGroup>*/}
               </MenuItem>
             ))}
           </Select>
