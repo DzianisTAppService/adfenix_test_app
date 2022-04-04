@@ -4,6 +4,8 @@ import { Box, Button, Divider, Grid } from '@mui/material';
 
 import ProfessionsField from './ProfessionsField';
 import ExperienceField from './ExperienceField';
+import CityField from './CityField';
+import IncomeYearField from './IncomeYearField';
 
 const CalculatorForm: FC = () => {
   const methods = useForm();
@@ -27,6 +29,14 @@ const CalculatorForm: FC = () => {
 
             <Grid item>
               <ExperienceField />
+            </Grid>
+
+            <Grid item>
+              <CityField />
+            </Grid>
+
+            <Grid item>
+              <IncomeYearField />
             </Grid>
 
             <Box my={3}>
