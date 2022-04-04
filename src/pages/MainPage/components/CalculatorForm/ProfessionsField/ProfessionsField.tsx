@@ -3,7 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-enum ProfessionTypes {
+export enum ProfessionTypes {
   DEVELOPER = 'Developer',
   TEACHER = 'Teacher',
   CASHIER = 'Cashier',
@@ -25,7 +25,7 @@ const ProfessionsField: FC = () => {
       render={({ field: { onChange, value } }) => (
         <FormControl fullWidth>
           <InputLabel id='profession-label' style={{ backgroundColor: '#fff' }}>
-            Organisation
+            Profession
           </InputLabel>
           <Select labelId='profession-label' id='profession' onChange={onChange} value={value}>
             {Professions.map(({ name, id }) => (

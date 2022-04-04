@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { Box, Button, Divider, Grid } from '@mui/material';
 
@@ -8,14 +8,15 @@ import CityField from './CityField';
 import IncomeYearField from './IncomeYearField';
 
 const CalculatorForm: FC = () => {
+  const [result, setResult] = useState<number>(0);
+
   const methods = useForm();
-  const { handleSubmit, getValues, watch } = methods;
-  const profession = watch('profession');
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: any) => {
+    const { profession, experience, city, incomeYear } = data;
+
     console.log(data, 'submitted data');
-    console.log(getValues(), 'getValues');
-    console.log(profession, 'profession');
   };
 
   return (
@@ -39,14 +40,16 @@ const CalculatorForm: FC = () => {
               <IncomeYearField />
             </Grid>
 
-            <Box my={3}>
+            <Box mt={3}>
               <Divider />
             </Box>
 
-            <Grid item container justifyContent='flex-end'>
+            <Grid item container justifyContent='space-between' alignItems='center'>
               <Button onClick={handleSubmit(onSubmit)} variant='outlined'>
-                Submit
+                Calculate
               </Button>
+
+              <Grid item>{result ? `Result: ${result}` : 'No result was calculated'}</Grid>
             </Grid>
           </Grid>
         </Box>

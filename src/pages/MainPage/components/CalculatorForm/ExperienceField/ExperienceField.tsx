@@ -16,7 +16,7 @@ const ExperienceField: FC = () => {
             type='number'
             id='experience'
             label='Experience'
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*', min: 0, max: 50 }}
             value={value}
             onChange={onChange}
           />
