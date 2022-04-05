@@ -3,7 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-enum IncomeYears {
+export enum IncomeYears {
   YEAR_2020 = 2020,
   YEAR_2019 = 2019,
 }
@@ -17,15 +17,15 @@ const IncomeYearField: FC = () => {
 
   return (
     <Controller
-      name='income-year'
+      name='incomeYear'
       control={control}
       defaultValue=''
       render={({ field: { onChange, value } }) => (
         <FormControl fullWidth>
-          <InputLabel id='income-year-label' style={{ backgroundColor: '#fff' }}>
+          <InputLabel id='incomeYear-label' style={{ backgroundColor: '#fff' }}>
             Income year
           </InputLabel>
-          <Select labelId='income-year-label' id='income-year' onChange={onChange} value={value}>
+          <Select labelId='incomeYear-label' id='income-year' onChange={onChange} value={value}>
             {IncomeYearsList.map(({ name, id }) => (
               <MenuItem key={id} value={name}>
                 {name}

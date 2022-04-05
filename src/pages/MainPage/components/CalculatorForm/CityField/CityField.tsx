@@ -3,7 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-enum Cities {
+export enum Cities {
   STOCKHOLM = 'Stockholm',
   GOTHENBURG = 'Gothenburg',
 }

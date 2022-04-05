@@ -6,7 +6,9 @@ import ProfessionsField from './ProfessionsField';
 import ExperienceField from './ExperienceField';
 import CityField from './CityField';
 import IncomeYearField from './IncomeYearField';
+import { getSalaryAfterTaxes } from './calculationHelpers';
 
+//todo add validation
 const CalculatorForm: FC = () => {
   const [result, setResult] = useState<number>(0);
 
@@ -14,9 +16,9 @@ const CalculatorForm: FC = () => {
   const { handleSubmit } = methods;
 
   const onSubmit = (data: any) => {
-    const { profession, experience, city, incomeYear } = data;
-
-    console.log(data, 'submitted data');
+    const salaryAfterTaxes = getSalaryAfterTaxes(data);
+    setResult(salaryAfterTaxes);
+    console.log(salaryAfterTaxes, 'submitted data');
   };
 
   return (
